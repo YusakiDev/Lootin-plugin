@@ -95,11 +95,16 @@ public class LootTableOverride {
         
         for (int i = 0; i < rolls; i++) {
             LootEntry selected = selectByWeight(random);
-            if (selected != null && selected.shouldDrop(random)) {
-                ItemStack item = itemResolver.resolve(selected);
-                if (item != null) {
-                    item.setAmount(selected.getRandomAmount(random));
-                    result.add(item);
+            if (selected != null) {
+                // First roll always drops (ignore chance), subsequent rolls check chance
+                boolean shouldDrop = (i == 0) || selected.shouldDrop(random);
+                
+                if (shouldDrop) {
+                    ItemStack item = itemResolver.resolve(selected);
+                    if (item != null) {
+                        item.setAmount(selected.getRandomAmount(random));
+                        result.add(item);
+                    }
                 }
             }
         }

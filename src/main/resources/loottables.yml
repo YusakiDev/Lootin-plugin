@@ -1881,210 +1881,6 @@ containers:
         amount: "6-10"
         chance: 1.0
         weight: 10
-  "minecraft:chests/trial_chambers/reward_common":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: ARROW
-        amount: "2-8"
-        chance: 1.0
-        weight: 4
-      - item: TIPPED_ARROW
-        amount: "2-8"
-        chance: 1.0
-        weight: 4
-      - item: EMERALD
-        amount: "2-4"
-        chance: 1.0
-        weight: 4
-      - item: WIND_CHARGE
-        amount: "1-3"
-        chance: 1.0
-        weight: 3
-      - item: IRON_INGOT
-        amount: "1-4"
-        chance: 1.0
-        weight: 3
-      - item: HONEY_BOTTLE
-        amount: "1-2"
-        chance: 1.0
-        weight: 3
-      - item: OMINOUS_BOTTLE
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: WIND_CHARGE
-        amount: "4-12"
-        chance: 1.0
-        weight: 1
-      - item: DIAMOND
-        amount: "1-2"
-        chance: 1.0
-        weight: 1
-  "minecraft:chests/trial_chambers/reward_ominous_common":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: EMERALD
-        amount: "4-10"
-        chance: 1.0
-        weight: 5
-      - item: WIND_CHARGE
-        amount: "8-12"
-        chance: 1.0
-        weight: 4
-      - item: TIPPED_ARROW
-        amount: "4-12"
-        chance: 1.0
-        weight: 3
-      - item: DIAMOND
-        amount: "2-3"
-        chance: 1.0
-        weight: 2
-      - item: OMINOUS_BOTTLE
-        amount: "1"
-        chance: 1.0
-        weight: 1
-  "minecraft:chests/trial_chambers/reward_ominous_rare":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: EMERALD_BLOCK
-        amount: "1"
-        chance: 1.0
-        weight: 5
-      - item: IRON_BLOCK
-        amount: "1"
-        chance: 1.0
-        weight: 4
-      - item: CROSSBOW
-        amount: "1"
-        chance: 1.0
-        weight: 4
-      - item: GOLDEN_APPLE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: DIAMOND_AXE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: DIAMOND_CHESTPLATE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: BOOK
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: BOOK
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: BOOK
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: DIAMOND_BLOCK
-        amount: "1"
-        chance: 1.0
-        weight: 1
-  "minecraft:chests/trial_chambers/reward_ominous_unique":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: ENCHANTED_GOLDEN_APPLE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: FLOW_ARMOR_TRIM_SMITHING_TEMPLATE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: FLOW_BANNER_PATTERN
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: MUSIC_DISC_CREATOR
-        amount: "1"
-        chance: 1.0
-        weight: 1
-      - item: HEAVY_CORE
-        amount: "1"
-        chance: 1.0
-        weight: 1
-  "minecraft:chests/trial_chambers/reward_rare":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: EMERALD
-        amount: "2-4"
-        chance: 1.0
-        weight: 3
-      - item: SHIELD
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: BOW
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: CROSSBOW
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: IRON_AXE
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: IRON_CHESTPLATE
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: GOLDEN_CARROT
-        amount: "1-2"
-        chance: 1.0
-        weight: 2
-      - item: BOOK
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: BOOK
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: DIAMOND_CHESTPLATE
-        amount: "1"
-        chance: 1.0
-        weight: 1
-      - item: DIAMOND_AXE
-        amount: "1"
-        chance: 1.0
-        weight: 1
-  "minecraft:chests/trial_chambers/reward_unique":
-    enabled: true
-    rolls: "1"
-    items:
-      - item: GOLDEN_APPLE
-        amount: "1"
-        chance: 1.0
-        weight: 4
-      - item: BOLT_ARMOR_TRIM_SMITHING_TEMPLATE
-        amount: "1"
-        chance: 1.0
-        weight: 3
-      - item: GUSTER_BANNER_PATTERN
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: MUSIC_DISC_PRECIPICE
-        amount: "1"
-        chance: 1.0
-        weight: 2
-      - item: TRIDENT
-        amount: "1"
-        chance: 1.0
-        weight: 1
   "minecraft:chests/trial_chambers/supply":
     enabled: true
     rolls: "3-5"
@@ -3085,42 +2881,236 @@ spawners:
         chance: 1.0
         weight: 1
 
-# ==================== TRIAL SPAWNER OVERRIDES ====================
-# These override BlockDispenseLootEvent for trial spawners (Paper 1.21+)
-trial-spawner:
-  normal:
-    enabled: false
-    rolls: "1"
-    items:
-      - item: TRIAL_KEY
-        amount: "1"
-        chance: 0.5
-        weight: 50
-  ominous:
-    enabled: false
-    rolls: "1-2"
-    items:
-      - item: OMINOUS_TRIAL_KEY
-        amount: "1"
-        chance: 0.5
-        weight: 50
-
-# ==================== VAULT OVERRIDES ====================
-# These override BlockDispenseLootEvent for vaults (Paper 1.21+)
+# ==================== VAULT OVERRIDES (BlockDispenseLootEvent) ====================
+# These override vault block loot ejection directly (Paper 1.21+ required)
+# Unlike container overrides, these catch the actual vault block dispensing items
 vault:
   normal:
-    enabled: false
+    enabled: true
     rolls: "1-3"
     items:
+      # Common pool items
+      - item: ARROW
+        amount: "2-8"
+        chance: 1.0
+        weight: 4
+      - item: TIPPED_ARROW
+        amount: "2-8"
+        chance: 1.0
+        weight: 4
       - item: EMERALD
         amount: "2-4"
         chance: 1.0
-        weight: 20
-  ominous:
-    enabled: false
-    rolls: "1-3"
-    items:
-      - item: EMERALD_BLOCK
+        weight: 4
+      - item: WIND_CHARGE
         amount: "1-3"
         chance: 1.0
-        weight: 15
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 3
+      - item: HONEY_BOTTLE
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: OMINOUS_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      # Rare pool items
+      - item: SHIELD
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: BOW
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: IRON_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: IRON_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: GOLDEN_CARROT
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      # Unique pool items (25% chance)
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 0.25
+        weight: 4
+      - item: BOLT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 0.25
+        weight: 3
+      - item: GUSTER_BANNER_PATTERN
+        amount: "1"
+        chance: 0.25
+        weight: 2
+      - item: MUSIC_DISC_PRECIPICE
+        amount: "1"
+        chance: 0.25
+        weight: 2
+      - item: TRIDENT
+        amount: "1"
+        chance: 0.25
+        weight: 1
+  ominous:
+    enabled: true
+    rolls: "1-3"
+    items:
+      # Ominous common pool
+      - item: EMERALD
+        amount: "4-10"
+        chance: 1.0
+        weight: 5
+      - item: WIND_CHARGE
+        amount: "8-12"
+        chance: 1.0
+        weight: 4
+      - item: TIPPED_ARROW
+        amount: "4-12"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND
+        amount: "2-3"
+        chance: 1.0
+        weight: 2
+      - item: OMINOUS_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      # Ominous rare pool
+      - item: EMERALD_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: ENCHANTED_BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      # Ominous unique pool (75% chance)
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 0.75
+        weight: 3
+      - item: FLOW_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 0.75
+        weight: 3
+      - item: FLOW_BANNER_PATTERN
+        amount: "1"
+        chance: 0.75
+        weight: 2
+      - item: MUSIC_DISC_CREATOR
+        amount: "1"
+        chance: 0.75
+        weight: 1
+      - item: HEAVY_CORE
+        amount: "1"
+        chance: 0.75
+        weight: 1
+
+# ==================== TRIAL SPAWNER OVERRIDES (BlockDispenseLootEvent) ====================
+# These override trial spawner block loot ejection directly (Paper 1.21+ required)
+# This catches items ejected after defeating trial spawner mobs
+trial-spawner:
+  normal:
+    enabled: true
+    rolls: "1"
+    items:
+      # Key drop
+      - item: TRIAL_KEY
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      # Consumables
+      - item: COOKED_CHICKEN
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: BAKED_POTATO
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  ominous:
+    enabled: true
+    rolls: "1"
+    items:
+      # Ominous key drop
+      - item: OMINOUS_TRIAL_KEY
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      # Ominous consumables
+      - item: COOKED_BEEF
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: BAKED_POTATO
+        amount: "2-4"
+        chance: 1.0
+        weight: 3
+      - item: GOLDEN_CARROT
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+
+

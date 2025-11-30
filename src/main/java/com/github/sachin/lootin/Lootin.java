@@ -145,7 +145,7 @@ public final class Lootin extends JavaPlugin {
         lootOverrideManager = new LootOverrideManager(this);
         LootOverrideListener lootOverrideListener = new LootOverrideListener();
         pm.registerEvents(lootOverrideListener, plugin);
-        lootOverrideListener.registerBlockDispenseLootListener();
+        lootOverrideListener.registerBlockDispenseLootListener(); // For vaults and trial spawners (Paper 1.21+)
         if(isRunningProtocolLib){
             try{
                 getLogger().info("Found ProtocolLib, trying to register meta data packet listener...");
