@@ -1,0 +1,3126 @@
+# ============================================================
+# LOOTIN - LOOT TABLE CONFIGURATION
+# ============================================================
+# This file contains loot tables generated from vanilla Minecraft data.
+# Edit items, amounts, chances, weights as desired.
+# Add ItemEdit items with: "itemedit:your_item_id"
+#
+# Set enabled: false on a table to use vanilla behavior instead.
+# Use /lootin generatetables --reset to regenerate defaults.
+# ============================================================
+
+enabled: true
+
+# ==================== CONTAINER LOOT TABLES ====================
+containers:
+  "minecraft:chests/abandoned_mineshaft":
+    enabled: true
+    rolls: "6-8"
+    items:
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: NAME_TAG
+        amount: "1"
+        chance: 1.0
+        weight: 30
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: REDSTONE
+        amount: "4-9"
+        chance: 1.0
+        weight: 5
+      - item: LAPIS_LAZULI
+        amount: "4-9"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: COAL
+        amount: "3-8"
+        chance: 1.0
+        weight: 10
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: GLOW_BERRIES
+        amount: "3-6"
+        chance: 1.0
+        weight: 15
+      - item: MELON_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: PUMPKIN_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: BEETROOT_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: RAIL
+        amount: "4-8"
+        chance: 1.0
+        weight: 20
+      - item: POWERED_RAIL
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: DETECTOR_RAIL
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: ACTIVATOR_RAIL
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: TORCH
+        amount: "1-16"
+        chance: 1.0
+        weight: 15
+  "minecraft:chests/ancient_city":
+    enabled: true
+    rolls: "6-11"
+    items:
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      - item: MUSIC_DISC_OTHERSIDE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: COMPASS
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: SCULK_CATALYST
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: NAME_TAG
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_HOE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: LEAD
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: LEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_13
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_CAT
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: SCULK
+        amount: "4-10"
+        chance: 1.0
+        weight: 3
+      - item: SCULK_SENSOR
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: CANDLE
+        amount: "1-4"
+        chance: 1.0
+        weight: 3
+      - item: AMETHYST_SHARD
+        amount: "1-15"
+        chance: 1.0
+        weight: 3
+      - item: EXPERIENCE_BOTTLE
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: GLOW_BERRIES
+        amount: "1-15"
+        chance: 1.0
+        weight: 3
+      - item: IRON_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: ECHO_SHARD
+        amount: "1-3"
+        chance: 1.0
+        weight: 4
+      - item: DISC_FRAGMENT_5
+        amount: "1-3"
+        chance: 1.0
+        weight: 4
+      - item: POTION
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BOOK
+        amount: "3-10"
+        chance: 1.0
+        weight: 5
+      - item: BONE
+        amount: "1-15"
+        chance: 1.0
+        weight: 5
+      - item: SOUL_TORCH
+        amount: "1-15"
+        chance: 1.0
+        weight: 5
+      - item: COAL
+        amount: "6-15"
+        chance: 1.0
+        weight: 7
+      - item: WARD_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/ancient_city_ice_box":
+    enabled: true
+    rolls: "4-10"
+    items:
+      - item: SUSPICIOUS_STEW
+        amount: "2-6"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_CARROT
+        amount: "1-10"
+        chance: 1.0
+        weight: 1
+      - item: BAKED_POTATO
+        amount: "1-10"
+        chance: 1.0
+        weight: 1
+      - item: PACKED_ICE
+        amount: "2-6"
+        chance: 1.0
+        weight: 2
+      - item: SNOWBALL
+        amount: "2-6"
+        chance: 1.0
+        weight: 4
+  "minecraft:chests/bastion_bridge":
+    enabled: true
+    rolls: "6-9"
+    items:
+      - item: LODESTONE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SPECTRAL_ARROW
+        amount: "10-28"
+        chance: 1.0
+        weight: 1
+      - item: GILDED_BLACKSTONE
+        amount: "8-12"
+        chance: 1.0
+        weight: 1
+      - item: CRYING_OBSIDIAN
+        amount: "3-8"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_INGOT
+        amount: "4-9"
+        chance: 1.0
+        weight: 1
+      - item: IRON_INGOT
+        amount: "4-9"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: STRING
+        amount: "1-6"
+        chance: 1.0
+        weight: 1
+      - item: LEATHER
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "5-17"
+        chance: 1.0
+        weight: 1
+      - item: IRON_NUGGET
+        amount: "2-6"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_NUGGET
+        amount: "2-6"
+        chance: 1.0
+        weight: 1
+      - item: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/bastion_hoglin_stable":
+    enabled: true
+    rolls: "6-7"
+    items:
+      - item: DIAMOND_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: DIAMOND_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 12
+      - item: NETHERITE_SCRAP
+        amount: "1"
+        chance: 1.0
+        weight: 8
+      - item: ANCIENT_DEBRIS
+        amount: "1"
+        chance: 1.0
+        weight: 12
+      - item: ANCIENT_DEBRIS
+        amount: "2"
+        chance: 1.0
+        weight: 5
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 12
+      - item: GOLD_BLOCK
+        amount: "2-4"
+        chance: 1.0
+        weight: 16
+      - item: GOLDEN_CARROT
+        amount: "8-17"
+        chance: 1.0
+        weight: 10
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: GOLDEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: CRYING_OBSIDIAN
+        amount: "1-5"
+        chance: 1.0
+        weight: 1
+      - item: GLOWSTONE
+        amount: "3-6"
+        chance: 1.0
+        weight: 1
+      - item: GILDED_BLACKSTONE
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: SOUL_SAND
+        amount: "2-7"
+        chance: 1.0
+        weight: 1
+      - item: CRIMSON_NYLIUM
+        amount: "2-7"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_NUGGET
+        amount: "2-8"
+        chance: 1.0
+        weight: 1
+      - item: LEATHER
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "5-17"
+        chance: 1.0
+        weight: 1
+      - item: STRING
+        amount: "3-8"
+        chance: 1.0
+        weight: 1
+      - item: PORKCHOP
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: COOKED_PORKCHOP
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: CRIMSON_FUNGUS
+        amount: "2-7"
+        chance: 1.0
+        weight: 1
+      - item: CRIMSON_ROOTS
+        amount: "2-7"
+        chance: 1.0
+        weight: 1
+      - item: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/bastion_other":
+    enabled: true
+    rolls: "8-9"
+    items:
+      - item: DIAMOND_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: ANCIENT_DEBRIS
+        amount: "1"
+        chance: 1.0
+        weight: 12
+      - item: NETHERITE_SCRAP
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: SPECTRAL_ARROW
+        amount: "10-22"
+        chance: 1.0
+        weight: 10
+      - item: PIGLIN_BANNER_PATTERN
+        amount: "1"
+        chance: 1.0
+        weight: 9
+      - item: MUSIC_DISC_PIGSTEP
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: GOLDEN_CARROT
+        amount: "6-17"
+        chance: 1.0
+        weight: 12
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 9
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: IRON_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: IRON_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: GOLDEN_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_INGOT
+        amount: "1-6"
+        chance: 1.0
+        weight: 2
+      - item: IRON_INGOT
+        amount: "1-6"
+        chance: 1.0
+        weight: 2
+      - item: GOLDEN_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: CRYING_OBSIDIAN
+        amount: "1-5"
+        chance: 1.0
+        weight: 2
+      - item: GILDED_BLACKSTONE
+        amount: "1-5"
+        chance: 1.0
+        weight: 2
+      - item: CHAIN
+        amount: "2-10"
+        chance: 1.0
+        weight: 1
+      - item: MAGMA_CREAM
+        amount: "2-6"
+        chance: 1.0
+        weight: 2
+      - item: BONE_BLOCK
+        amount: "3-6"
+        chance: 1.0
+        weight: 1
+      - item: IRON_NUGGET
+        amount: "2-8"
+        chance: 1.0
+        weight: 1
+      - item: OBSIDIAN
+        amount: "4-6"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_NUGGET
+        amount: "2-8"
+        chance: 1.0
+        weight: 1
+      - item: STRING
+        amount: "4-6"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "5-17"
+        chance: 1.0
+        weight: 2
+      - item: COOKED_PORKCHOP
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/bastion_treasure":
+    enabled: true
+    rolls: "8-9"
+    items:
+      - item: NETHERITE_INGOT
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: ANCIENT_DEBRIS
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: NETHERITE_SCRAP
+        amount: "1"
+        chance: 1.0
+        weight: 8
+      - item: ANCIENT_DEBRIS
+        amount: "2"
+        chance: 1.0
+        weight: 4
+      - item: DIAMOND_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 6
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND
+        amount: "2-6"
+        chance: 1.0
+        weight: 5
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: SPECTRAL_ARROW
+        amount: "12-25"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_BLOCK
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: IRON_BLOCK
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_INGOT
+        amount: "3-9"
+        chance: 1.0
+        weight: 1
+      - item: IRON_INGOT
+        amount: "3-9"
+        chance: 1.0
+        weight: 1
+      - item: CRYING_OBSIDIAN
+        amount: "3-5"
+        chance: 1.0
+        weight: 1
+      - item: QUARTZ
+        amount: "8-23"
+        chance: 1.0
+        weight: 1
+      - item: GILDED_BLACKSTONE
+        amount: "5-15"
+        chance: 1.0
+        weight: 1
+      - item: MAGMA_CREAM
+        amount: "3-8"
+        chance: 1.0
+        weight: 1
+      - item: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: NETHERITE_UPGRADE_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/buried_treasure":
+    enabled: true
+    rolls: "9-17"
+    items:
+      - item: HEART_OF_THE_SEA
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: IRON_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 20
+      - item: GOLD_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: TNT
+        amount: "1-2"
+        chance: 1.0
+        weight: 5
+      - item: EMERALD
+        amount: "4-8"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND
+        amount: "1-2"
+        chance: 1.0
+        weight: 5
+      - item: PRISMARINE_CRYSTALS
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: LEATHER_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: IRON_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: COOKED_COD
+        amount: "2-4"
+        chance: 1.0
+        weight: 1
+      - item: COOKED_SALMON
+        amount: "2-4"
+        chance: 1.0
+        weight: 1
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/desert_pyramid":
+    enabled: true
+    rolls: "7-9"
+    items:
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 15
+      - item: GOLD_INGOT
+        amount: "2-7"
+        chance: 1.0
+        weight: 15
+      - item: EMERALD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: BONE
+        amount: "4-6"
+        chance: 1.0
+        weight: 25
+      - item: SPIDER_EYE
+        amount: "1-3"
+        chance: 1.0
+        weight: 25
+      - item: ROTTEN_FLESH
+        amount: "3-7"
+        chance: 1.0
+        weight: 25
+      - item: LEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 20
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BONE
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: GUNPOWDER
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: ROTTEN_FLESH
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: STRING
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: SAND
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: DUNE_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/end_city_treasure":
+    enabled: true
+    rolls: "3-7"
+    items:
+      - item: DIAMOND
+        amount: "2-7"
+        chance: 1.0
+        weight: 5
+      - item: IRON_INGOT
+        amount: "4-8"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "2-7"
+        chance: 1.0
+        weight: 15
+      - item: EMERALD
+        amount: "2-6"
+        chance: 1.0
+        weight: 2
+      - item: BEETROOT_SEEDS
+        amount: "1-10"
+        chance: 1.0
+        weight: 5
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/igloo_chest":
+    enabled: true
+    rolls: "3-9"
+    items:
+      - item: APPLE
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: GOLD_NUGGET
+        amount: "1-3"
+        chance: 1.0
+        weight: 10
+      - item: STONE_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: ROTTEN_FLESH
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT
+        amount: "2-3"
+        chance: 1.0
+        weight: 10
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/jungle_temple":
+    enabled: true
+    rolls: "3-7"
+    items:
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "2-7"
+        chance: 1.0
+        weight: 15
+      - item: BAMBOO
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: EMERALD
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: BONE
+        amount: "4-6"
+        chance: 1.0
+        weight: 20
+      - item: ROTTEN_FLESH
+        amount: "3-7"
+        chance: 1.0
+        weight: 16
+      - item: LEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 3
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WILD_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/jungle_temple_dispenser":
+    enabled: true
+    rolls: "1-2"
+    items:
+      - item: ARROW
+        amount: "2-7"
+        chance: 1.0
+        weight: 30
+  "minecraft:chests/nether_bridge":
+    enabled: true
+    rolls: "3-5"
+    items:
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: GOLDEN_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: FLINT_AND_STEEL
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: NETHER_WART
+        amount: "3-7"
+        chance: 1.0
+        weight: 5
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 8
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: OBSIDIAN
+        amount: "2-4"
+        chance: 1.0
+        weight: 2
+      - item: RIB_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/pillager_outpost":
+    enabled: true
+    rolls: "6-12"
+    items:
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT
+        amount: "3-5"
+        chance: 1.0
+        weight: 7
+      - item: POTATO
+        amount: "2-5"
+        chance: 1.0
+        weight: 5
+      - item: CARROT
+        amount: "3-5"
+        chance: 1.0
+        weight: 5
+      - item: DARK_OAK_LOG
+        amount: "2-3"
+        chance: 1.0
+        weight: 1
+      - item: EXPERIENCE_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 7
+      - item: STRING
+        amount: "1-6"
+        chance: 1.0
+        weight: 4
+      - item: ARROW
+        amount: "2-7"
+        chance: 1.0
+        weight: 4
+      - item: TRIPWIRE_HOOK
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOAT_HORN
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/ruined_portal":
+    enabled: true
+    rolls: "5-9"
+    items:
+      - item: OBSIDIAN
+        amount: "1-2"
+        chance: 1.0
+        weight: 40
+      - item: FLINT
+        amount: "1-4"
+        chance: 1.0
+        weight: 40
+      - item: IRON_NUGGET
+        amount: "9-18"
+        chance: 1.0
+        weight: 40
+      - item: FLINT_AND_STEEL
+        amount: "1"
+        chance: 1.0
+        weight: 40
+      - item: FIRE_CHARGE
+        amount: "1"
+        chance: 1.0
+        weight: 40
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLD_NUGGET
+        amount: "4-24"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_HOE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GOLDEN_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: GLISTERING_MELON_SLICE
+        amount: "4-12"
+        chance: 1.0
+        weight: 5
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: LIGHT_WEIGHTED_PRESSURE_PLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: GOLDEN_CARROT
+        amount: "4-12"
+        chance: 1.0
+        weight: 5
+      - item: CLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: GOLD_INGOT
+        amount: "2-8"
+        chance: 1.0
+        weight: 5
+      - item: BELL
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_BLOCK
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      - item: LODESTONE
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+  "minecraft:chests/shipwreck_map":
+    enabled: true
+    rolls: "5"
+    items:
+      - item: MAP
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: COMPASS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: MAP
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: CLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: PAPER
+        amount: "1-10"
+        chance: 1.0
+        weight: 20
+      - item: FEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: BOOK
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/shipwreck_supply":
+    enabled: true
+    rolls: "4-11"
+    items:
+      - item: PAPER
+        amount: "1-12"
+        chance: 1.0
+        weight: 8
+      - item: POTATO
+        amount: "2-6"
+        chance: 1.0
+        weight: 7
+      - item: MOSS_BLOCK
+        amount: "1-4"
+        chance: 1.0
+        weight: 7
+      - item: POISONOUS_POTATO
+        amount: "2-6"
+        chance: 1.0
+        weight: 7
+      - item: CARROT
+        amount: "4-8"
+        chance: 1.0
+        weight: 7
+      - item: WHEAT
+        amount: "8-21"
+        chance: 1.0
+        weight: 7
+      - item: SUSPICIOUS_STEW
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: COAL
+        amount: "2-8"
+        chance: 1.0
+        weight: 6
+      - item: ROTTEN_FLESH
+        amount: "5-24"
+        chance: 1.0
+        weight: 5
+      - item: PUMPKIN
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: BAMBOO
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: GUNPOWDER
+        amount: "1-5"
+        chance: 1.0
+        weight: 3
+      - item: TNT
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      - item: LEATHER_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: LEATHER_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: LEATHER_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: LEATHER_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/shipwreck_treasure":
+    enabled: true
+    rolls: "6-12"
+    items:
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 90
+      - item: GOLD_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: EMERALD
+        amount: "1-5"
+        chance: 1.0
+        weight: 40
+      - item: DIAMOND
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: EXPERIENCE_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_NUGGET
+        amount: "1-10"
+        chance: 1.0
+        weight: 50
+      - item: GOLD_NUGGET
+        amount: "1-10"
+        chance: 1.0
+        weight: 10
+      - item: LAPIS_LAZULI
+        amount: "1-10"
+        chance: 1.0
+        weight: 20
+      - item: COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/simple_dungeon":
+    enabled: true
+    rolls: "5-10"
+    items:
+      - item: LEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 20
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_OTHERSIDE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_13
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: MUSIC_DISC_CAT
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: NAME_TAG
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: IRON_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: WHEAT
+        amount: "1-4"
+        chance: 1.0
+        weight: 20
+      - item: BUCKET
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: REDSTONE
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: MELON_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: PUMPKIN_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: BEETROOT_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: BONE
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: GUNPOWDER
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: ROTTEN_FLESH
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: STRING
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+  "minecraft:chests/spawn_bonus_chest":
+    enabled: true
+    rolls: "9"
+    items:
+      - item: STONE_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WOODEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: STONE_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WOODEN_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: APPLE
+        amount: "1-2"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: SALMON
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: STICK
+        amount: "1-12"
+        chance: 1.0
+        weight: 10
+      - item: OAK_PLANKS
+        amount: "1-12"
+        chance: 1.0
+        weight: 10
+      - item: OAK_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: SPRUCE_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: BIRCH_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: JUNGLE_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: ACACIA_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: DARK_OAK_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: MANGROVE_LOG
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+  "minecraft:chests/stronghold_corridor":
+    enabled: true
+    rolls: "3-4"
+    items:
+      - item: ENDER_PEARL
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: REDSTONE
+        amount: "4-9"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: APPLE
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LEATHER
+        amount: "1-5"
+        chance: 1.0
+        weight: 1
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: MUSIC_DISC_OTHERSIDE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EYE_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/stronghold_crossing":
+    enabled: true
+    rolls: "1-4"
+    items:
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: REDSTONE
+        amount: "4-9"
+        chance: 1.0
+        weight: 5
+      - item: COAL
+        amount: "3-8"
+        chance: 1.0
+        weight: 10
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: APPLE
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/stronghold_library":
+    enabled: true
+    rolls: "3-11"
+    items:
+      - item: BOOK
+        amount: "1-3"
+        chance: 1.0
+        weight: 20
+      - item: PAPER
+        amount: "2-7"
+        chance: 1.0
+        weight: 20
+      - item: MAP
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: COMPASS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: EYE_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/corridor":
+    enabled: true
+    rolls: "1-3"
+    items:
+      - item: IRON_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: HONEYCOMB
+        amount: "2-8"
+        chance: 1.0
+        weight: 1
+      - item: STONE_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: STONE_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: ENDER_PEARL
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: BAMBOO_HANGING_SIGN
+        amount: "1-4"
+        chance: 1.0
+        weight: 2
+      - item: BAMBOO_PLANKS
+        amount: "3-6"
+        chance: 1.0
+        weight: 2
+      - item: SCAFFOLDING
+        amount: "2-10"
+        chance: 1.0
+        weight: 2
+      - item: TORCH
+        amount: "3-6"
+        chance: 1.0
+        weight: 2
+      - item: TUFF
+        amount: "8-20"
+        chance: 1.0
+        weight: 3
+  "minecraft:chests/trial_chambers/entrance":
+    enabled: true
+    rolls: "2-3"
+    items:
+      - item: TRIAL_KEY
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: STICK
+        amount: "2-5"
+        chance: 1.0
+        weight: 5
+      - item: WOODEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: HONEYCOMB
+        amount: "2-8"
+        chance: 1.0
+        weight: 10
+      - item: ARROW
+        amount: "5-10"
+        chance: 1.0
+        weight: 10
+  "minecraft:chests/trial_chambers/intersection":
+    enabled: true
+    rolls: "1-3"
+    items:
+      - item: DIAMOND_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD_BLOCK
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: DIAMOND
+        amount: "1-2"
+        chance: 1.0
+        weight: 10
+      - item: CAKE
+        amount: "1-4"
+        chance: 1.0
+        weight: 20
+      - item: AMETHYST_SHARD
+        amount: "8-20"
+        chance: 1.0
+        weight: 20
+      - item: IRON_BLOCK
+        amount: "1-2"
+        chance: 1.0
+        weight: 20
+  "minecraft:chests/trial_chambers/intersection_barrel":
+    enabled: true
+    rolls: "1-3"
+    items:
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: COMPASS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BUCKET
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: GOLDEN_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: BAMBOO_PLANKS
+        amount: "5-15"
+        chance: 1.0
+        weight: 10
+      - item: BAKED_POTATO
+        amount: "6-10"
+        chance: 1.0
+        weight: 10
+  "minecraft:chests/trial_chambers/reward_common":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: ARROW
+        amount: "2-8"
+        chance: 1.0
+        weight: 4
+      - item: TIPPED_ARROW
+        amount: "2-8"
+        chance: 1.0
+        weight: 4
+      - item: EMERALD
+        amount: "2-4"
+        chance: 1.0
+        weight: 4
+      - item: WIND_CHARGE
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 3
+      - item: HONEY_BOTTLE
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: OMINOUS_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: WIND_CHARGE
+        amount: "4-12"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/reward_ominous_common":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: EMERALD
+        amount: "4-10"
+        chance: 1.0
+        weight: 5
+      - item: WIND_CHARGE
+        amount: "8-12"
+        chance: 1.0
+        weight: 4
+      - item: TIPPED_ARROW
+        amount: "4-12"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND
+        amount: "2-3"
+        chance: 1.0
+        weight: 2
+      - item: OMINOUS_BOTTLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/reward_ominous_rare":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: EMERALD_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/reward_ominous_unique":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: FLOW_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: FLOW_BANNER_PATTERN
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_CREATOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: HEAVY_CORE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/reward_rare":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: EMERALD
+        amount: "2-4"
+        chance: 1.0
+        weight: 3
+      - item: SHIELD
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: BOW
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: CROSSBOW
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: IRON_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: IRON_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: GOLDEN_CARROT
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/reward_unique":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: BOLT_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: GUSTER_BANNER_PATTERN
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_PRECIPICE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: TRIDENT
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/trial_chambers/supply":
+    enabled: true
+    rolls: "3-5"
+    items:
+      - item: ARROW
+        amount: "4-14"
+        chance: 1.0
+        weight: 2
+      - item: TIPPED_ARROW
+        amount: "4-8"
+        chance: 1.0
+        weight: 1
+      - item: TIPPED_ARROW
+        amount: "4-8"
+        chance: 1.0
+        weight: 1
+      - item: BAKED_POTATO
+        amount: "2-4"
+        chance: 1.0
+        weight: 2
+      - item: GLOW_BERRIES
+        amount: "2-10"
+        chance: 1.0
+        weight: 2
+      - item: ACACIA_PLANKS
+        amount: "3-6"
+        chance: 1.0
+        weight: 1
+      - item: MOSS_BLOCK
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: BONE_MEAL
+        amount: "2-5"
+        chance: 1.0
+        weight: 1
+      - item: TUFF
+        amount: "5-10"
+        chance: 1.0
+        weight: 1
+      - item: TORCH
+        amount: "3-6"
+        chance: 1.0
+        weight: 1
+      - item: POTION
+        amount: "2"
+        chance: 1.0
+        weight: 1
+      - item: POTION
+        amount: "2"
+        chance: 1.0
+        weight: 1
+      - item: STONE_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MILK_BUCKET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/underwater_ruin_big":
+    enabled: true
+    rolls: "3-9"
+    items:
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_NUGGET
+        amount: "1-3"
+        chance: 1.0
+        weight: 10
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT
+        amount: "2-3"
+        chance: 1.0
+        weight: 10
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: LEATHER_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: FISHING_ROD
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: MAP
+        amount: "1"
+        chance: 1.0
+        weight: 10
+  "minecraft:chests/underwater_ruin_small":
+    enabled: true
+    rolls: "3-9"
+    items:
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: STONE_AXE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: ROTTEN_FLESH
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT
+        amount: "2-3"
+        chance: 1.0
+        weight: 10
+      - item: LEATHER_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: FISHING_ROD
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: MAP
+        amount: "1"
+        chance: 1.0
+        weight: 5
+  "minecraft:chests/village/village_armorer":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: IRON_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 4
+      - item: IRON_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_butcher":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: PORKCHOP
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: WHEAT
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: BEEF
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: MUTTON
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: COAL
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+  "minecraft:chests/village/village_cartographer":
+    enabled: true
+    rolls: "2-6"
+    items:
+      - item: MAP
+        amount: "1-3"
+        chance: 1.0
+        weight: 10
+      - item: PAPER
+        amount: "1-5"
+        chance: 1.0
+        weight: 15
+      - item: COMPASS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: STICK
+        amount: "1-2"
+        chance: 1.0
+        weight: 5
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_desert_house":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: CLAY_BALL
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GREEN_DYE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: CACTUS
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: WHEAT
+        amount: "1-7"
+        chance: 1.0
+        weight: 10
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DEAD_BUSH
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: EMERALD
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_fisher":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: COD
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: SALMON
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: WATER_BUCKET
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: BARREL
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT_SEEDS
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: COAL
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+  "minecraft:chests/village/village_fletcher":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: FEATHER
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: EGG
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: FLINT
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+      - item: STICK
+        amount: "1-3"
+        chance: 1.0
+        weight: 6
+  "minecraft:chests/village/village_mason":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: CLAY_BALL
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: FLOWER_POT
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: STONE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: STONE_BRICKS
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 4
+      - item: YELLOW_DYE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SMOOTH_STONE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_plains_house":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: GOLD_NUGGET
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: DANDELION
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: POPPY
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: POTATO
+        amount: "1-7"
+        chance: 1.0
+        weight: 10
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: APPLE
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: FEATHER
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 2
+      - item: OAK_SAPLING
+        amount: "1-2"
+        chance: 1.0
+        weight: 5
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_savanna_house":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: GOLD_NUGGET
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: SHORT_GRASS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: TALL_GRASS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: WHEAT_SEEDS
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 2
+      - item: ACACIA_SAPLING
+        amount: "1-2"
+        chance: 1.0
+        weight: 10
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: TORCH
+        amount: "1-2"
+        chance: 1.0
+        weight: 1
+      - item: BUCKET
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_shepherd":
+    enabled: true
+    rolls: "1-5"
+    items:
+      - item: WHITE_WOOL
+        amount: "1-8"
+        chance: 1.0
+        weight: 6
+      - item: BLACK_WOOL
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: GRAY_WOOL
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: BROWN_WOOL
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: LIGHT_GRAY_WOOL
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: EMERALD
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SHEARS
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: WHEAT
+        amount: "1-6"
+        chance: 1.0
+        weight: 6
+  "minecraft:chests/village/village_snowy_house":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: BLUE_ICE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SNOW_BLOCK
+        amount: "1"
+        chance: 1.0
+        weight: 4
+      - item: POTATO
+        amount: "1-7"
+        chance: 1.0
+        weight: 10
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: BEETROOT_SEEDS
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: BEETROOT_SOUP
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: FURNACE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 1
+      - item: SNOWBALL
+        amount: "1-7"
+        chance: 1.0
+        weight: 10
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_taiga_house":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: IRON_NUGGET
+        amount: "1-5"
+        chance: 1.0
+        weight: 1
+      - item: FERN
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: LARGE_FERN
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: POTATO
+        amount: "1-7"
+        chance: 1.0
+        weight: 10
+      - item: SWEET_BERRIES
+        amount: "1-7"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: PUMPKIN_SEEDS
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: PUMPKIN_PIE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 2
+      - item: SPRUCE_SAPLING
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: SPRUCE_SIGN
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: SPRUCE_LOG
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_tannery":
+    enabled: true
+    rolls: "2-6"
+    items:
+      - item: LEATHER
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: LEATHER_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: LEATHER_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: LEATHER_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: LEATHER_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 1
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_temple":
+    enabled: true
+    rolls: "3-8"
+    items:
+      - item: REDSTONE
+        amount: "1-4"
+        chance: 1.0
+        weight: 2
+      - item: BREAD
+        amount: "1-4"
+        chance: 1.0
+        weight: 7
+      - item: ROTTEN_FLESH
+        amount: "1-4"
+        chance: 1.0
+        weight: 7
+      - item: LAPIS_LAZULI
+        amount: "1-4"
+        chance: 1.0
+        weight: 1
+      - item: GOLD_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 1
+      - item: EMERALD
+        amount: "1-4"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/village/village_toolsmith":
+    enabled: true
+    rolls: "3-8"
+    items:
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 5
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: COAL
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: STICK
+        amount: "1-3"
+        chance: 1.0
+        weight: 20
+      - item: IRON_SHOVEL
+        amount: "1"
+        chance: 1.0
+        weight: 5
+  "minecraft:chests/village/village_weaponsmith":
+    enabled: true
+    rolls: "4-9"
+    items:
+      - item: DIAMOND
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: IRON_INGOT
+        amount: "1-5"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-3"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: APPLE
+        amount: "1-3"
+        chance: 1.0
+        weight: 15
+      - item: IRON_PICKAXE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_SWORD
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_HELMET
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_LEGGINGS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: IRON_BOOTS
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: OBSIDIAN
+        amount: "3-7"
+        chance: 1.0
+        weight: 5
+      - item: OAK_SAPLING
+        amount: "3-7"
+        chance: 1.0
+        weight: 5
+      - item: SADDLE
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: IRON_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: GOLDEN_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: DIAMOND_HORSE_ARMOR
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: BUNDLE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:chests/woodland_mansion":
+    enabled: true
+    rolls: "6-11"
+    items:
+      - item: LEAD
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: ENCHANTED_GOLDEN_APPLE
+        amount: "1"
+        chance: 1.0
+        weight: 2
+      - item: MUSIC_DISC_13
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: MUSIC_DISC_CAT
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: NAME_TAG
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: CHAINMAIL_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: DIAMOND_HOE
+        amount: "1"
+        chance: 1.0
+        weight: 15
+      - item: DIAMOND_CHESTPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 5
+      - item: BOOK
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: IRON_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 10
+      - item: GOLD_INGOT
+        amount: "1-4"
+        chance: 1.0
+        weight: 5
+      - item: BREAD
+        amount: "1"
+        chance: 1.0
+        weight: 20
+      - item: WHEAT
+        amount: "1-4"
+        chance: 1.0
+        weight: 20
+      - item: BUCKET
+        amount: "1"
+        chance: 1.0
+        weight: 10
+      - item: REDSTONE
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: COAL
+        amount: "1-4"
+        chance: 1.0
+        weight: 15
+      - item: MELON_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: PUMPKIN_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: BEETROOT_SEEDS
+        amount: "2-4"
+        chance: 1.0
+        weight: 10
+      - item: RESIN_CLUMP
+        amount: "2-4"
+        chance: 1.0
+        weight: 50
+      - item: BONE
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: GUNPOWDER
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: ROTTEN_FLESH
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: STRING
+        amount: "1-8"
+        chance: 1.0
+        weight: 10
+      - item: VEX_ARMOR_TRIM_SMITHING_TEMPLATE
+        amount: "1"
+        chance: 1.0
+        weight: 1
+
+# ==================== SPAWNER LOOT TABLES ====================
+spawners:
+  "minecraft:spawners/ominous/trial_chamber/consumables":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: COOKED_BEEF
+        amount: "1-2"
+        chance: 1.0
+        weight: 3
+      - item: BAKED_POTATO
+        amount: "2-4"
+        chance: 1.0
+        weight: 3
+      - item: GOLDEN_CARROT
+        amount: "1-2"
+        chance: 1.0
+        weight: 2
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:spawners/ominous/trial_chamber/key":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: OMINOUS_TRIAL_KEY
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:spawners/trial_chamber/consumables":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: COOKED_CHICKEN
+        amount: "1"
+        chance: 1.0
+        weight: 3
+      - item: BREAD
+        amount: "1-3"
+        chance: 1.0
+        weight: 3
+      - item: BAKED_POTATO
+        amount: "1-3"
+        chance: 1.0
+        weight: 2
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+  "minecraft:spawners/trial_chamber/items_to_drop_when_ominous":
+    enabled: true
+    rolls: "2"
+    items:
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: LINGERING_POTION
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: ARROW
+        amount: "1"
+        chance: 1.0
+        weight: 1
+      - item: FIRE_CHARGE
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+      - item: WIND_CHARGE
+        amount: "1-3"
+        chance: 1.0
+        weight: 1
+  "minecraft:spawners/trial_chamber/key":
+    enabled: true
+    rolls: "1"
+    items:
+      - item: TRIAL_KEY
+        amount: "1"
+        chance: 1.0
+        weight: 1
+
+# ==================== TRIAL SPAWNER OVERRIDES ====================
+# These override BlockDispenseLootEvent for trial spawners (Paper 1.21+)
+trial-spawner:
+  normal:
+    enabled: false
+    rolls: "1"
+    items:
+      - item: TRIAL_KEY
+        amount: "1"
+        chance: 0.5
+        weight: 50
+  ominous:
+    enabled: false
+    rolls: "1-2"
+    items:
+      - item: OMINOUS_TRIAL_KEY
+        amount: "1"
+        chance: 0.5
+        weight: 50
+
+# ==================== VAULT OVERRIDES ====================
+# These override BlockDispenseLootEvent for vaults (Paper 1.21+)
+vault:
+  normal:
+    enabled: false
+    rolls: "1-3"
+    items:
+      - item: EMERALD
+        amount: "2-4"
+        chance: 1.0
+        weight: 20
+  ominous:
+    enabled: false
+    rolls: "1-3"
+    items:
+      - item: EMERALD_BLOCK
+        amount: "1-3"
+        chance: 1.0
+        weight: 15

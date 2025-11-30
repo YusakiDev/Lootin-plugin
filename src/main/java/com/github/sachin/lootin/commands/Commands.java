@@ -2,6 +2,7 @@ package com.github.sachin.lootin.commands;
 
 import com.github.sachin.lootin.Lootin;
 import com.github.sachin.lootin.compat.PaperCompat;
+import com.github.sachin.lootin.loot.LootOverrideManager;
 import com.github.sachin.lootin.utils.*;
 
 import com.github.sachin.lootin.utils.storage.LootinContainer;
@@ -367,5 +368,92 @@ public class Commands extends BaseCommand{
 //        }
 //        return true;
 //    }
+
+    @Subcommand("generatetables")
+    @CommandCompletion("--reset")
+    public void onGenerateTablesCommand(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("lootin.command.generatetables")) {
+            sender.sendMessage(plugin.getMessage(LConstants.NO_PERMISSION, null));
+            return;
+        }
+
+        LootOverrideManager manager = plugin.getLootOverrideManager();
+        if (manager == null) {
+            sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Loot override system is not initialized!");
+            return;
+        }
+
+        boolean reset = args.length > 0 && args[0].equalsIgnoreCase("--reset");
+
+        if (reset) {
+            manager.regenerateDefaults();
+            sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Loot tables reset to defaults and reloaded!");
+        } else {
+            manager.generateDefaultConfig();
+            manager.reload();
+            sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Default loot tables generated (existing file preserved if present)!");
+        }
+    }
+
+    @Subcommand("reloadtables")
+    public void onReloadTablesCommand(CommandSender sender) {
+        if (!sender.hasPermission("lootin.command.reloadtables")) {
+            sender.sendMessage(plugin.getMessage(LConstants.NO_PERMISSION, null));
+            return;
+        }
+
+        LootOverrideManager manager = plugin.getLootOverrideManager();
+        if (manager == null) {
+            sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Loot override system is not initialized!");
+            return;
+        }
+
+        manager.reload();
+        sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Loot tables reloaded!");
+    }
+
+    @Subcommand("listitemedit")
+    public void onListItemEditCommand(CommandSender sender) {
+        if (!sender.hasPermission("lootin.command.listitemedit")) {
+            sender.sendMessage(plugin.getMessage(LConstants.NO_PERMISSION, null));
+            return;
+        }
+
+        LootOverrideManager manager = plugin.getLootOverrideManager();
+        if (manager == null) {
+            sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Loot override system is not initialized!");
+            return;
+        }
+
+        if (!manager.isItemEditAvailable()) {
+            sender.sendMessage(plugin.getPrefix() + ChatColor.YELLOW + "ItemEdit is not available. Install YskLib with ItemEdit enabled to use custom items.");
+            return;
+        }
+
+        Set<String> itemIds = manager.getItemEditIds();
+        if (itemIds.isEmpty()) {
+            sender.sendMessage(plugin.getPrefix() + ChatColor.YELLOW + "No ItemEdit items found.");
+            return;
+        }
+
+        sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Available ItemEdit items (" + itemIds.size() + "):");
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        for (String id : itemIds) {
+            if (count > 0) sb.append(ChatColor.GRAY + ", ");
+            sb.append(ChatColor.AQUA + "itemedit:" + id);
+            count++;
+            if (count >= 10) {
+                sender.sendMessage("  " + sb.toString());
+                sb = new StringBuilder();
+                count = 0;
+            }
+        }
+        if (sb.length() > 0) {
+            sender.sendMessage("  " + sb.toString());
+        }
+
+        sender.sendMessage(plugin.getPrefix() + ChatColor.GRAY + "Use these IDs in loottables.yml (e.g., item: \"itemedit:your_item_id\")");
+    }
 
 }

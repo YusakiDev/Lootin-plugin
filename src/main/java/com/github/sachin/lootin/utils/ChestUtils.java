@@ -536,7 +536,7 @@ public class ChestUtils{
             minecart = (StorageMinecart) lootable;
             inventory = minecart.getInventory();
             data = minecart.getPersistentDataContainer();
-        } else if (containerType == ContainerType.CHEST) {
+        } else if (containerType == ContainerType.CHEST || containerType == ContainerType.DOUBLE_CHEST) {
             if (!(state instanceof Chest)) {
                 plugin.debug("&e[DEBUG] Expected chest but found " + state.getType());
                 return false;
@@ -584,46 +584,50 @@ public class ChestUtils{
         }
 
         BlockState state = block.getState();
-        Inventory inventory;
         Lootable lootState;
         PersistentDataContainer data;
 
-        if (containerType == ContainerType.CHEST && state instanceof Chest) {
+        if ((containerType == ContainerType.CHEST || containerType == ContainerType.DOUBLE_CHEST) && state instanceof Chest) {
             Chest chest = (Chest) state;
-            inventory = chest.getBlockInventory();
             lootState = chest;
             data = chest.getPersistentDataContainer();
         } else if (containerType == ContainerType.BARREL && state instanceof Barrel) {
             Barrel barrel = (Barrel) state;
-            inventory = barrel.getInventory();
             lootState = barrel;
             data = barrel.getPersistentDataContainer();
         } else {
             return fallbackInventory;
         }
 
-        inventory.clear();
+        // Clear the world's actual inventory before filling
+        if (state instanceof Container) {
+            ((Container) state).getInventory().clear();
+        }
 
         boolean filled = false;
         if (randomize) {
-            filled = fillFromLootTable(player, lootState, data, inventory);
+            // NMS fill operates on the world's actual block entity, not the snapshot
+            filled = fillFromLootTable(player, lootState, data);
         }
         if (!filled) {
-            filled = restoreTemplate(inventory, data);
+            // For template restore, we need to work with a fresh state after any NMS operations
+            BlockState freshState = block.getState();
+            if (freshState instanceof Container) {
+                filled = restoreTemplate(((Container) freshState).getInventory(), data);
+            }
         }
 
-        BlockState after = block.getState();
-        if (after instanceof Chest) {
-            Chest chest = (Chest) after;
-            chest.getPersistentDataContainer().set(LConstants.SHARED_LAST_REFILL_KEY, PersistentDataType.LONG, timestamp);
-            chest.update();
-            return chest.getBlockInventory();
+        // Get fresh state to set timestamp and return updated inventory
+        BlockState finalState = block.getState();
+        if (finalState instanceof TileState) {
+            PersistentDataContainer finalData = ((TileState) finalState).getPersistentDataContainer();
+            finalData.set(LConstants.SHARED_LAST_REFILL_KEY, PersistentDataType.LONG, timestamp);
+            finalState.update();
         }
-        if (after instanceof Barrel) {
-            Barrel barrel = (Barrel) after;
-            barrel.getPersistentDataContainer().set(LConstants.SHARED_LAST_REFILL_KEY, PersistentDataType.LONG, timestamp);
-            barrel.update();
-            return barrel.getInventory();
+
+        // Return the world's actual inventory (from fresh state)
+        if (finalState instanceof Container) {
+            return ((Container) finalState).getInventory();
         }
         return fallbackInventory;
     }
@@ -638,9 +642,11 @@ public class ChestUtils{
 
         boolean filled = false;
         if (randomize) {
-            filled = fillFromLootTable(player, minecart, data, inventory);
+            // For minecarts, the entity itself is the live object (not a snapshot like blocks)
+            filled = fillFromLootTable(player, minecart, data);
         }
         if (!filled) {
+            // Minecart inventory is live, so we can use it directly
             filled = restoreTemplate(inventory, data);
         }
         if (!filled) {
@@ -648,21 +654,92 @@ public class ChestUtils{
         }
 
         data.set(LConstants.SHARED_LAST_REFILL_KEY, PersistentDataType.LONG, timestamp);
-        return inventory;
+        return minecart.getInventory(); // Return fresh reference
     }
 
-    private static boolean fillFromLootTable(Player player, Lootable lootable, PersistentDataContainer data, Inventory inventory) {
+    private static boolean fillFromLootTable(Player player, Lootable lootable, PersistentDataContainer data) {
         String key = ensureLootTableKey(lootable, data);
         if (key == null) {
             plugin.debug("&e[DEBUG] Shared refill missing loot table key");
             return false;
         }
         plugin.debug("&e[DEBUG] Shared refill applying loot table: " + key);
-        inventory.clear();
-        plugin.getPrilib().getNmsHandler().fill(player, lootable, key, plugin.getWorldManager().shouldResetSeed(player.getWorld().getName()));
-        plugin.debug("&e[DEBUG] After fill, inventory empty: " + inventory.isEmpty());
-        // DON'T call update() - NMS fill already modified the live inventory
-        boolean success = !inventory.isEmpty();
+        
+        // Get fresh inventory from world before fill
+        Inventory targetInventory = null;
+        if (lootable instanceof BlockState) {
+            BlockState freshState = ((BlockState) lootable).getBlock().getState();
+            if (freshState instanceof Container) {
+                targetInventory = ((Container) freshState).getInventory();
+            }
+        } else if (lootable instanceof InventoryHolder) {
+            targetInventory = ((InventoryHolder) lootable).getInventory();
+        }
+        
+        if (targetInventory == null) {
+            plugin.debug("&e[DEBUG] Could not get target inventory for loot fill");
+            return false;
+        }
+        
+        // Clear and fill using Bukkit API
+        targetInventory.clear();
+        
+        // Try to use Bukkit's LootTable API first
+        NamespacedKey lootTableNsKey = NamespacedKey.fromString(key);
+        if (lootTableNsKey != null) {
+            LootTable lootTable = Bukkit.getLootTable(lootTableNsKey);
+            if (lootTable != null) {
+                // Build loot context
+                Location loc = null;
+                if (lootable instanceof BlockState) {
+                    loc = ((BlockState) lootable).getLocation();
+                } else if (lootable instanceof Entity) {
+                    loc = ((Entity) lootable).getLocation();
+                }
+                
+                if (loc != null) {
+                    java.util.Random random = new java.util.Random();
+                    if (plugin.getWorldManager().shouldResetSeed(player.getWorld().getName())) {
+                        random = new java.util.Random(); // New random seed each time
+                    }
+                    
+                    org.bukkit.loot.LootContext.Builder contextBuilder = new org.bukkit.loot.LootContext.Builder(loc);
+                    contextBuilder.killer(player);
+                    
+                    try {
+                        lootTable.fillInventory(targetInventory, random, contextBuilder.build());
+                        plugin.debug("&e[DEBUG] Bukkit LootTable.fillInventory completed");
+                    } catch (Exception e) {
+                        plugin.debug("&e[DEBUG] Bukkit LootTable.fillInventory failed: " + e.getMessage());
+                        // Fall back to NMS
+                        plugin.getPrilib().getNmsHandler().fill(player, lootable, key, plugin.getWorldManager().shouldResetSeed(player.getWorld().getName()));
+                    }
+                } else {
+                    // Fall back to NMS if we can't get location
+                    plugin.getPrilib().getNmsHandler().fill(player, lootable, key, plugin.getWorldManager().shouldResetSeed(player.getWorld().getName()));
+                }
+            } else {
+                plugin.debug("&e[DEBUG] Could not find loot table: " + key + ", falling back to NMS");
+                plugin.getPrilib().getNmsHandler().fill(player, lootable, key, plugin.getWorldManager().shouldResetSeed(player.getWorld().getName()));
+            }
+        } else {
+            plugin.debug("&e[DEBUG] Invalid loot table key: " + key + ", falling back to NMS");
+            plugin.getPrilib().getNmsHandler().fill(player, lootable, key, plugin.getWorldManager().shouldResetSeed(player.getWorld().getName()));
+        }
+        
+        // Check result
+        Inventory freshInventory = null;
+        if (lootable instanceof BlockState) {
+            BlockState state = ((BlockState) lootable).getBlock().getState();
+            if (state instanceof Container) {
+                freshInventory = ((Container) state).getInventory();
+            }
+        } else if (lootable instanceof InventoryHolder) {
+            freshInventory = ((InventoryHolder) lootable).getInventory();
+        }
+        
+        boolean success = freshInventory != null && !freshInventory.isEmpty();
+        plugin.debug("&e[DEBUG] After fill, inventory empty: " + (freshInventory == null || freshInventory.isEmpty()));
         plugin.debug("&e[DEBUG] fillFromLootTable result: " + success);
         return success;
     }

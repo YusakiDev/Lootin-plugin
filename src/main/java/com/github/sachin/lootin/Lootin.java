@@ -16,6 +16,7 @@ import com.github.sachin.lootin.utils.*;
 import com.github.sachin.lootin.utils.config.ConfigUpdater;
 import com.github.sachin.lootin.utils.config.WorldManager;
 import com.github.sachin.lootin.utils.cooldown.CooldownContainer;
+import com.github.sachin.lootin.loot.LootOverrideManager;
 
 import com.github.sachin.lootin.utils.storage.LootinContainer;
 import com.github.sachin.lootin.utils.storage.StorageConverterUtility;
@@ -53,6 +54,8 @@ public final class Lootin extends JavaPlugin {
     public CooldownContainer interactCooldown;
 
     private WorldManager worldManager;
+
+    private LootOverrideManager lootOverrideManager;
 
     public boolean isRunningPurpur;
     public boolean isRunningProtocolLib;
@@ -137,6 +140,12 @@ public final class Lootin extends JavaPlugin {
         pm.registerEvents(new ChestEvents(), plugin);
         pm.registerEvents(new ItemFrameListener(),plugin);
         pm.registerEvents(new LootGenerateListener(),plugin);
+        
+        // Initialize loot override system
+        lootOverrideManager = new LootOverrideManager(this);
+        LootOverrideListener lootOverrideListener = new LootOverrideListener();
+        pm.registerEvents(lootOverrideListener, plugin);
+        lootOverrideListener.registerBlockDispenseLootListener();
         if(isRunningProtocolLib){
             try{
                 getLogger().info("Found ProtocolLib, trying to register meta data packet listener...");
@@ -312,6 +321,9 @@ public final class Lootin extends JavaPlugin {
         }
         reloadConfig();
         getWorldManager().saveAndReloadWorldConfigFile();
+        if(lootOverrideManager != null) {
+            lootOverrideManager.reload();
+        }
         getLogger().info("Config file reloaded");
     }
 
@@ -342,6 +354,10 @@ public final class Lootin extends JavaPlugin {
 
     public Scheduler getScheduler() {
         return scheduler;
+    }
+
+    public LootOverrideManager getLootOverrideManager() {
+        return lootOverrideManager;
     }
 
 }
