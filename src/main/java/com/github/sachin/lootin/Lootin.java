@@ -17,6 +17,7 @@ import com.github.sachin.lootin.utils.config.ConfigUpdater;
 import com.github.sachin.lootin.utils.config.WorldManager;
 import com.github.sachin.lootin.utils.cooldown.CooldownContainer;
 import com.github.sachin.lootin.loot.LootOverrideManager;
+import com.github.sachin.lootin.loot.VaultResetManager;
 
 import com.github.sachin.lootin.utils.storage.LootinContainer;
 import com.github.sachin.lootin.utils.storage.StorageConverterUtility;
@@ -56,6 +57,7 @@ public final class Lootin extends JavaPlugin {
     private WorldManager worldManager;
 
     private LootOverrideManager lootOverrideManager;
+    private VaultResetManager vaultResetManager;
 
     public boolean isRunningPurpur;
     public boolean isRunningProtocolLib;
@@ -143,9 +145,9 @@ public final class Lootin extends JavaPlugin {
         
         // Initialize loot override system
         lootOverrideManager = new LootOverrideManager(this);
+        vaultResetManager = new VaultResetManager(this);
         LootOverrideListener lootOverrideListener = new LootOverrideListener();
         pm.registerEvents(lootOverrideListener, plugin);
-        lootOverrideListener.registerBlockDispenseLootListener(); // For vaults and trial spawners (Paper 1.21+)
         if(isRunningProtocolLib){
             try{
                 getLogger().info("Found ProtocolLib, trying to register meta data packet listener...");
@@ -324,6 +326,9 @@ public final class Lootin extends JavaPlugin {
         if(lootOverrideManager != null) {
             lootOverrideManager.reload();
         }
+        if(vaultResetManager != null) {
+            vaultResetManager.reload();
+        }
         getLogger().info("Config file reloaded");
     }
 
@@ -358,6 +363,10 @@ public final class Lootin extends JavaPlugin {
 
     public LootOverrideManager getLootOverrideManager() {
         return lootOverrideManager;
+    }
+
+    public VaultResetManager getVaultResetManager() {
+        return vaultResetManager;
     }
 
 }

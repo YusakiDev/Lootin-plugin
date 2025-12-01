@@ -3,6 +3,7 @@ package com.github.sachin.lootin.commands;
 import com.github.sachin.lootin.Lootin;
 import com.github.sachin.lootin.compat.PaperCompat;
 import com.github.sachin.lootin.loot.LootOverrideManager;
+import com.github.sachin.lootin.loot.VaultResetManager;
 import com.github.sachin.lootin.utils.*;
 
 import com.github.sachin.lootin.utils.storage.LootinContainer;
@@ -108,7 +109,7 @@ public class Commands extends BaseCommand{
     }
 
     private void handleMinecartContainer(Player player) {
-        RayTraceResult raytrace = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4, (en) -> en.getType() == EntityType.MINECART_CHEST);
+        RayTraceResult raytrace = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4, (en) -> en.getType() == EntityType.CHEST_MINECART);
         if (raytrace != null && raytrace.getHitEntity() != null) {
             StorageMinecart minecart = (StorageMinecart) raytrace.getHitEntity();
             if (!minecart.getInventory().isEmpty()) {
@@ -234,7 +235,7 @@ public class Commands extends BaseCommand{
 
         PersistentDataHolder holder = null;
         RayTraceResult blockRay = player.rayTraceBlocks(4);
-        RayTraceResult entityRay = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4,(en) -> en.getType()==EntityType.MINECART_CHEST);
+        RayTraceResult entityRay = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4,(en) -> en.getType()==EntityType.CHEST_MINECART);
 
         if(blockRay != null && blockRay.getHitBlock().getState() instanceof PersistentDataHolder){
             holder = (PersistentDataHolder) blockRay.getHitBlock().getState();
@@ -306,7 +307,7 @@ public class Commands extends BaseCommand{
         LootinContainer lootinContainer = null;
         PersistentDataHolder holder = null;
         RayTraceResult blockRay = player.rayTraceBlocks(4);
-        RayTraceResult entiryRay = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4,(en) -> en.getType()==EntityType.MINECART_CHEST);
+        RayTraceResult entiryRay = player.getWorld().rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 4,(en) -> en.getType()==EntityType.CHEST_MINECART);
         if(blockRay != null && blockRay.getHitBlock().getState() instanceof PersistentDataHolder){
             holder = (PersistentDataHolder) blockRay.getHitBlock().getState();
 
@@ -454,6 +455,108 @@ public class Commands extends BaseCommand{
         }
 
         sender.sendMessage(plugin.getPrefix() + ChatColor.GRAY + "Use these IDs in loottables.yml (e.g., item: \"itemedit:your_item_id\")");
+    }
+
+    @Subcommand("resetvault")
+    @CommandCompletion("@players|all")
+    public void onResetVaultCommand(Player player, String[] args) {
+        if (!player.hasPermission("lootin.command.resetvault")) {
+            plugin.sendPlayerMessage(LConstants.NO_PERMISSION, player);
+            return;
+        }
+
+        VaultResetManager vaultManager = plugin.getVaultResetManager();
+        if (vaultManager == null) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "Vault reset system is not initialized!");
+            return;
+        }
+
+        // Get block player is looking at
+        RayTraceResult ray = player.rayTraceBlocks(5);
+        if (ray == null || ray.getHitBlock() == null) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "You must look at a vault block!");
+            return;
+        }
+
+        Block block = ray.getHitBlock();
+        if (!vaultManager.isVault(block)) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "That block is not a vault! Looking at: " + block.getType().name());
+            return;
+        }
+
+        if (args.length == 0 || args[0].equalsIgnoreCase("all")) {
+            // Reset for all players
+            int count = vaultManager.resetVaultForAllPlayers(block);
+            if (count > 0) {
+                player.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Reset vault for " + count + " player(s)!");
+            } else {
+                player.sendMessage(plugin.getPrefix() + ChatColor.YELLOW + "No players have used this vault yet.");
+            }
+        } else {
+            // Reset for specific player
+            String targetName = args[0];
+            Player targetPlayer = Bukkit.getPlayer(targetName);
+            UUID targetUUID;
+
+            if (targetPlayer != null) {
+                targetUUID = targetPlayer.getUniqueId();
+            } else {
+                // Try offline player
+                OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(targetName);
+                if (!offlinePlayer.hasPlayedBefore() && offlinePlayer.getPlayer() == null) {
+                    player.sendMessage(plugin.getPrefix() + ChatColor.RED + "Player '" + targetName + "' not found!");
+                    return;
+                }
+                targetUUID = offlinePlayer.getUniqueId();
+            }
+
+            boolean success = vaultManager.resetVaultForPlayer(block, targetUUID);
+            if (success) {
+                player.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Reset vault for player '" + targetName + "'!");
+            } else {
+                player.sendMessage(plugin.getPrefix() + ChatColor.YELLOW + "Player '" + targetName + "' has not used this vault.");
+            }
+        }
+    }
+
+    @Subcommand("vaultinfo")
+    public void onVaultInfoCommand(Player player) {
+        if (!player.hasPermission("lootin.command.vaultinfo")) {
+            plugin.sendPlayerMessage(LConstants.NO_PERMISSION, player);
+            return;
+        }
+
+        VaultResetManager vaultManager = plugin.getVaultResetManager();
+        if (vaultManager == null) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "Vault reset system is not initialized!");
+            return;
+        }
+
+        // Get block player is looking at
+        RayTraceResult ray = player.rayTraceBlocks(5);
+        if (ray == null || ray.getHitBlock() == null) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "You must look at a vault block!");
+            return;
+        }
+
+        Block block = ray.getHitBlock();
+        if (!vaultManager.isVault(block)) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.RED + "That block is not a vault! Looking at: " + block.getType().name());
+            return;
+        }
+
+        Collection<UUID> rewardedPlayers = vaultManager.getRewardedPlayers(block);
+        if (rewardedPlayers.isEmpty()) {
+            player.sendMessage(plugin.getPrefix() + ChatColor.YELLOW + "No players have used this vault yet.");
+            return;
+        }
+
+        player.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Players who have used this vault (" + rewardedPlayers.size() + "):");
+        for (UUID uuid : rewardedPlayers) {
+            OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
+            String name = offlinePlayer.getName() != null ? offlinePlayer.getName() : uuid.toString();
+            player.sendMessage("  " + ChatColor.AQUA + "- " + name);
+        }
     }
 
 }

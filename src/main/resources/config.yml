@@ -99,3 +99,19 @@ shared-refill-time: 14d
 shared-reset-seed-on-fill: true
 
 
+# ====================================================================================================
+# VAULT RESET - Allows players to reuse vaults after a set time (Paper 1.21.4+)
+# ====================================================================================================
+# Trial Chamber vaults are normally one-time use per player. This feature allows them to reset
+# after a configured time period, letting players use the same vault again with a new key.
+# ====================================================================================================
+vault-reset:
+  # Enable/disable vault reset feature
+  enabled: false
+  
+  # Time until a vault resets for each player
+  # Supported units: d (days), h (hours), m (minutes), s (seconds)
+  # Examples: 7d = 7 days, 12h = 12 hours, 30m = 30 minutes
+  reset-time: "7d"
+
+

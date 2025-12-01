@@ -800,7 +800,7 @@ public class ChestUtils{
     /**
      * Parses time string like "7d", "12h", "30m", "60s" to milliseconds
      */
-    private static long parseTimeString(String timeStr) {
+    public static long parseTimeString(String timeStr) {
         java.util.regex.Matcher matcher = LConstants.TIME_UNITS_PATTERN.matcher(timeStr);
         long totalMillis = 0;
 

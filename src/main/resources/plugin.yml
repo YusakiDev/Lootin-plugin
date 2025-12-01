@@ -31,3 +31,5 @@ permissions:
       lootin.command.generatetables: true
       lootin.command.reloadtables: true
       lootin.command.listitemedit: true
+      lootin.command.resetvault: true
+      lootin.command.vaultinfo: true

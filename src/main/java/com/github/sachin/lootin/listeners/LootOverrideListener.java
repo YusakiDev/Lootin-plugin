@@ -1,16 +1,20 @@
 package com.github.sachin.lootin.listeners;
 
 import com.github.sachin.lootin.loot.LootOverrideManager;
+import com.github.sachin.lootin.loot.VaultResetManager;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.event.Event;
+import org.bukkit.block.Vault;
+import org.bukkit.block.data.type.TrialSpawner;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.block.BlockDispenseLootEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.world.LootGenerateEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.EventExecutor;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -23,9 +27,11 @@ import java.util.List;
 public class LootOverrideListener extends BaseListener {
     
     private LootOverrideManager lootManager;
+    private VaultResetManager vaultResetManager;
     
     public LootOverrideListener() {
         this.lootManager = plugin.getLootOverrideManager();
+        this.vaultResetManager = plugin.getVaultResetManager();
     }
     
     /**
@@ -57,157 +63,139 @@ public class LootOverrideListener extends BaseListener {
     }
     
     /**
-     * Register BlockDispenseLootEvent listener for vaults and trial spawners (Paper 1.21+)
-     * Uses reflection to avoid compile-time dependency on Paper API
+     * Intercept vault and trial spawner loot ejection (Paper 1.21+)
      */
-    @SuppressWarnings("unchecked")
-    public void registerBlockDispenseLootListener() {
-        try {
-            // Check if BlockDispenseLootEvent exists (Paper 1.21+)
-            Class<? extends Event> eventClass = (Class<? extends Event>) 
-                Class.forName("org.bukkit.event.block.BlockDispenseLootEvent");
-            
-            // Get methods we'll need via reflection
-            Method getBlockMethod = eventClass.getMethod("getBlock");
-            Method setDispensedLootMethod = eventClass.getMethod("setDispensedLoot", List.class);
-            
-            // Create EventExecutor that handles the event
-            EventExecutor executor = (listener, event) -> {
-                if (!eventClass.isInstance(event)) return;
-                if (lootManager == null || !lootManager.isEnabled()) return;
-                
-                try {
-                    Block block = (Block) getBlockMethod.invoke(event);
-                    Material blockType = block.getType();
-                    
-                    plugin.debug("&e[DEBUG] BlockDispenseLootEvent fired for block: " + blockType.name());
-                    
-                    if (blockType.name().equals("VAULT")) {
-                        handleVaultLoot(event, block, setDispensedLootMethod);
-                    } else if (blockType.name().equals("TRIAL_SPAWNER")) {
-                        handleTrialSpawnerLoot(event, block, setDispensedLootMethod);
-                    }
-                } catch (Exception e) {
-                    plugin.debug("&c[DEBUG] Error handling BlockDispenseLootEvent: " + e.getMessage());
-                }
-            };
-            
-            // Register using programmatic API
-            plugin.getServer().getPluginManager().registerEvent(
-                eventClass,
-                this,
-                EventPriority.HIGH,
-                executor,
-                plugin,
-                false
-            );
-            
-            plugin.getLogger().info("Registered BlockDispenseLootEvent listener for vaults and trial spawners");
-            
-        } catch (ClassNotFoundException e) {
-            plugin.getLogger().info("BlockDispenseLootEvent not available - vault/trial spawner overrides require Paper 1.21+");
-        } catch (NoSuchMethodException e) {
-            plugin.getLogger().warning("BlockDispenseLootEvent API changed: " + e.getMessage());
-        } catch (Exception e) {
-            plugin.getLogger().warning("Failed to register BlockDispenseLootEvent listener: " + e.getMessage());
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onBlockDispenseLoot(BlockDispenseLootEvent e) {
+        if (lootManager == null || !lootManager.isEnabled()) {
+            return;
+        }
+        
+        Block block = e.getBlock();
+        Material blockType = block.getType();
+        
+        plugin.debug("&e[DEBUG] BlockDispenseLootEvent fired for block: " + blockType.name());
+        
+        if (blockType == Material.VAULT) {
+            handleVaultLoot(e, block);
+        } else if (blockType == Material.TRIAL_SPAWNER) {
+            handleTrialSpawnerLoot(e, block);
         }
     }
     
     /**
-     * Handle vault loot override
+     * Handle vault loot override and record for reset tracking
      */
-    private void handleVaultLoot(Event event, Block block, Method setDispensedLootMethod) {
-        try {
-            boolean isOminous = isOminousVault(block);
-            String type = isOminous ? "ominous" : "normal";
+    private void handleVaultLoot(BlockDispenseLootEvent e, Block block) {
+        boolean isOminous = isOminousVault(block);
+        String type = isOminous ? "ominous" : "normal";
+        
+        plugin.debug("&e[DEBUG] Vault type: " + type);
+        
+        // Record vault open for reset tracking
+        Player player = e.getPlayer();
+        if (player != null && vaultResetManager != null && vaultResetManager.isEnabled()) {
+            vaultResetManager.recordVaultOpen(block, player.getUniqueId());
+        }
+        
+        // Override loot if configured
+        if (lootManager.hasVaultOverride(type)) {
+            List<ItemStack> customLoot = lootManager.generateVaultLoot(type);
             
-            plugin.debug("&e[DEBUG] Vault type: " + type);
-            
-            if (lootManager.hasVaultOverride(type)) {
-                List<ItemStack> customLoot = lootManager.generateVaultLoot(type);
-                
-                if (customLoot != null && !customLoot.isEmpty()) {
-                    setDispensedLootMethod.invoke(event, customLoot);
-                    plugin.debug("&e[DEBUG] Overrode vault (" + type + ") loot with " + customLoot.size() + " items");
-                }
-            } else {
-                plugin.debug("&e[DEBUG] No vault override for type: " + type);
+            if (customLoot != null && !customLoot.isEmpty()) {
+                e.setDispensedLoot(customLoot);
+                plugin.debug("&e[DEBUG] Overrode vault (" + type + ") loot with " + customLoot.size() + " items");
             }
-        } catch (Exception ex) {
-            plugin.debug("&c[DEBUG] Error handling vault loot: " + ex.getMessage());
+        } else {
+            plugin.debug("&e[DEBUG] No vault override for type: " + type);
         }
     }
     
     /**
      * Handle trial spawner loot override
      */
-    private void handleTrialSpawnerLoot(Event event, Block block, Method setDispensedLootMethod) {
-        try {
-            boolean isOminous = isOminousTrialSpawner(block);
-            String type = isOminous ? "ominous" : "normal";
+    private void handleTrialSpawnerLoot(BlockDispenseLootEvent e, Block block) {
+        boolean isOminous = isOminousTrialSpawner(block);
+        String type = isOminous ? "ominous" : "normal";
+        
+        plugin.debug("&e[DEBUG] Trial spawner type: " + type);
+        
+        if (lootManager.hasTrialSpawnerOverride(type)) {
+            List<ItemStack> customLoot = lootManager.generateTrialSpawnerLoot(type);
             
-            plugin.debug("&e[DEBUG] Trial spawner type: " + type);
-            
-            if (lootManager.hasTrialSpawnerOverride(type)) {
-                List<ItemStack> customLoot = lootManager.generateTrialSpawnerLoot(type);
-                
-                if (customLoot != null && !customLoot.isEmpty()) {
-                    setDispensedLootMethod.invoke(event, customLoot);
-                    plugin.debug("&e[DEBUG] Overrode trial spawner (" + type + ") loot with " + customLoot.size() + " items");
-                }
-            } else {
-                plugin.debug("&e[DEBUG] No trial spawner override for type: " + type);
+            if (customLoot != null && !customLoot.isEmpty()) {
+                e.setDispensedLoot(customLoot);
+                plugin.debug("&e[DEBUG] Overrode trial spawner (" + type + ") loot with " + customLoot.size() + " items");
             }
-        } catch (Exception ex) {
-            plugin.debug("&c[DEBUG] Error handling trial spawner loot: " + ex.getMessage());
+        } else {
+            plugin.debug("&e[DEBUG] No trial spawner override for type: " + type);
         }
     }
     
     /**
-     * Check if a vault block is ominous using reflection
+     * Check if a vault block is ominous
      */
     private boolean isOminousVault(Block block) {
-        try {
-            org.bukkit.block.data.BlockData data = block.getBlockData();
-            Class<?> vaultDataClass = Class.forName("org.bukkit.block.data.type.Vault");
-            if (vaultDataClass.isInstance(data)) {
-                Method isOminousMethod = vaultDataClass.getMethod("isOminous");
-                return (boolean) isOminousMethod.invoke(data);
-            }
-        } catch (Exception e) {
-            // Vault block data not available or no isOminous method
+        if (block.getBlockData() instanceof org.bukkit.block.data.type.Vault vaultData) {
+            return vaultData.isOminous();
         }
         return false;
     }
     
     /**
-     * Check if a trial spawner block is ominous using reflection
+     * Check if a trial spawner block is ominous
      */
     private boolean isOminousTrialSpawner(Block block) {
-        // Try block data approach first
-        try {
-            org.bukkit.block.data.BlockData data = block.getBlockData();
-            Class<?> trialSpawnerDataClass = Class.forName("org.bukkit.block.data.type.TrialSpawner");
-            if (trialSpawnerDataClass.isInstance(data)) {
-                Method isOminousMethod = trialSpawnerDataClass.getMethod("isOminous");
-                return (boolean) isOminousMethod.invoke(data);
-            }
-        } catch (Exception e) {
-            // BlockData approach not available
+        // Try block data first
+        if (block.getBlockData() instanceof TrialSpawner spawnerData) {
+            return spawnerData.isOminous();
         }
         
-        // Try block state approach as fallback
-        try {
-            Class<?> trialSpawnerClass = Class.forName("org.bukkit.block.TrialSpawner");
-            Object state = block.getState();
-            if (trialSpawnerClass.isInstance(state)) {
-                Method isOminousMethod = trialSpawnerClass.getMethod("isOminous");
-                return (boolean) isOminousMethod.invoke(state);
-            }
-        } catch (Exception e) {
-            // Block state approach not available
+        // Try block state as fallback
+        if (block.getState() instanceof org.bukkit.block.TrialSpawner spawner) {
+            return spawner.isOminous();
         }
         
         return false;
+    }
+    
+    /**
+     * Auto-reset vaults when player moves near them (if reset time has passed)
+     */
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPlayerMove(PlayerMoveEvent e) {
+        if (vaultResetManager == null || !vaultResetManager.isEnabled()) {
+            return;
+        }
+        
+        // Only check when player moves to a new block (not just head rotation)
+        Location from = e.getFrom();
+        Location to = e.getTo();
+        if (to == null || (from.getBlockX() == to.getBlockX() 
+                && from.getBlockY() == to.getBlockY() 
+                && from.getBlockZ() == to.getBlockZ())) {
+            return;
+        }
+        
+        Player player = e.getPlayer();
+        
+        // Check nearby blocks for vaults (4 block radius - vault activation range)
+        int radius = 4;
+        Location playerLoc = player.getLocation();
+        
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -radius; y <= radius; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    Block block = playerLoc.clone().add(x, y, z).getBlock();
+                    
+                    if (block.getType() == Material.VAULT) {
+                        // Check and auto-reset if time has passed
+                        if (vaultResetManager.checkAndResetForPlayer(block, player.getUniqueId())) {
+                            plugin.debug("&e[DEBUG] Auto-reset vault at " + block.getLocation() + " for player " + player.getName());
+                        }
+                    }
+                }
+            }
+        }
     }
 }
